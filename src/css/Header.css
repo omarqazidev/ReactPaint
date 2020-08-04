@@ -1,0 +1,22 @@
+.filemenu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.filemenu-text {
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+.rp-logo {
+    height: 37px;
+    width: 37px;
+    margin-left: 10px;
+}
+
+.bg-light {
+    background-color: var(--bg-1) !important;
+}
