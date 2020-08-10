@@ -3,14 +3,17 @@ import { v4 as uuid } from 'uuid';
 export default class Composite {
     id: string = '-1';
     type: string = '?';
-    content: string = '';
+    name: string = '!';
+    value: string = '_';
     css: React.CSSProperties = {};
+    classes: string = '';
     children: Composite[] = [];
 
-    constructor(type: string, content: string, css: React.CSSProperties) {
+    constructor(type: string, value: string, css: React.CSSProperties) {
         this.id = uuid();
         this.type = type;
-        this.content = content;
+        this.name = `${this.type}${this.id}`;
+        this.value = value;
         this.css = css;
     }
 

@@ -1,57 +1,22 @@
 import React, { ReactElement } from 'react';
 import { useComponent } from '../../../redux';
 import Composite from '../../../structures/Composite';
-import { Container } from '../../RPComponents/Container';
+import { RPContainer, RPComponent } from '../../RPComponents';
+import { ComponentActions } from '../../../redux/actions/componentActions';
 
 export function Renderer() {
-    const { mainComponent } = useComponent();
-    return Recurse(mainComponent);
+    const { mainComponent, componentDispatch } = useComponent();
+    return Recurse(mainComponent, componentDispatch);
 }
 
-function Recurse(component: Composite) {
+function Recurse(component: Composite, dispatch: React.Dispatch<ComponentActions>) {
     const renderedChildren: ReactElement[] = component.children.map((childComponent) => {
-        return Recurse(childComponent);
+        return Recurse(childComponent, dispatch);
     });
 
     if (component.type.toLowerCase() === 'container') {
-        return (
-            <Container
-                divChildren={renderedChildren}
-                css={{ ...component.css }}
-                id={component.id}
-                key={component.id}
-            />
-        );
+        return <RPContainer key={component.id} data={component} divChildren={renderedChildren} />;
     } else {
-        return React.createElement(toHtmlName(component.type), {
-            style: { ...component.css },
-            children: component.content,
-            key: component.id,
-        });
-    }
-}
-
-function toHtmlName(componentName: string) {
-    switch (componentName) {
-        case 'container':
-            return 'div';
-
-        case 'text':
-            return 'p';
-
-        case 'heading':
-            return 'h1';
-
-        case 'button':
-            return 'button';
-
-        case 'textfield':
-            return 'input';
-
-        case 'image':
-            return 'img';
-
-        default:
-            return 'p';
+        return <RPComponent key={component.id} data={component} />;
     }
 }

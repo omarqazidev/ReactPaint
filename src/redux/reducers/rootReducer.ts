@@ -1,7 +1,6 @@
-import { curriedUIReducer } from './uiReducer';
 import { combineReducers } from 'redux';
-
 import { curriedComponentReducer } from './componentReducer';
+import { curriedUIReducer } from './uiReducer';
 
 const rootReducer = combineReducers({
     components: curriedComponentReducer,

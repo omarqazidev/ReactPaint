@@ -54,9 +54,11 @@ function selectComponent(
     component: Composite,
     action: ISelectComponentAction
 ) {
+    if (action.payload.componentId === '-1') {
+        state.selectedComponent = null;
+    }
     if (component.id === action.payload.componentId) {
         state.selectedComponent = component;
-
         return;
     }
     component.children.forEach((comp) => {

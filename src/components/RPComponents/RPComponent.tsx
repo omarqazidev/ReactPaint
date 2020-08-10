@@ -1,16 +1,64 @@
-import React, { Ref } from 'react';
-import { DragElementWrapper } from 'react-dnd';
+import React, { useState, useEffect, ReactElement } from 'react';
+import Composite from '../../structures/Composite';
+import { useComponent } from '../../redux';
+import { getJsx } from './getJsx';
 
-interface RPComponentProps {
-    type: string;
-    css: React.CSSProperties;
+interface ComponentProps {
+    data: Composite;
 }
 
-const RPComponent: React.FC<RPComponentProps> = ({ type, css, children }) => {
-    return React.createElement(type, {
-        style: { ...css },
-        children: children,
-    });
-};
+export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
+    const { componentDispatch, selectedComponent } = useComponent();
+    const [element, setElement] = useState<ReactElement | null>(null);
+    const [value, setValue] = useState<string>('only inital value set');
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [isSelected, setIsSelected] = useState<boolean>(false);
 
-export default RPComponent;
+    const singleClick = (event: React.MouseEvent<any>) => (data: Composite) => {
+        event.stopPropagation();
+        componentDispatch({ type: 'SELECT_COMPONENT', payload: { componentId: data.id } });
+        setIsSelected(true);
+    };
+
+    const doubleClick = (event: React.MouseEvent<any>) => {
+        if (isEditing === false) {
+            setIsEditing(true);
+        }
+    };
+
+    const jsx = getJsx(data, value, singleClick, doubleClick);
+
+    let textfield = (
+        <input
+            onDoubleClick={() => setIsEditing(false)}
+            value={value}
+            onChange={(e) => {
+                setValue(e.target.value);
+            }}
+        />
+    );
+
+    useEffect(() => {
+        if (isEditing === false) {
+            if (isSelected === false) {
+                data.value = value;
+                setElement(jsx);
+            } else {
+                let newElement = <div style={{ border: 'solid 1px black' }}>{jsx}</div>;
+                setElement(newElement);
+            }
+        } else {
+            setElement(textfield);
+        }
+    }, [isEditing, value, data.css, isSelected]);
+
+    useEffect(() => {
+        if (selectedComponent?.id !== data.id) {
+            setIsSelected(false);
+        } else {
+            setIsSelected(true);
+        }
+    }, [selectedComponent?.id]);
+
+    return element;
+};

@@ -6,8 +6,9 @@ import { ComponentActions } from './actions/componentActions';
 
 export function useComponent() {
     const { mainComponent } = useSelector((state: AppState) => state.components);
+    const selectedComponent = useSelector((state: AppState) => state.components?.selectedComponent);
     const componentDispatch = useDispatch<Dispatch<ComponentActions>>();
-    return { mainComponent, componentDispatch };
+    return { mainComponent, componentDispatch, selectedComponent };
 }
 
 export function useUI() {

@@ -13,7 +13,6 @@ const uiReducer = (state: UIState = initialState, action: UIActions) => {
     switch (action.type) {
         case 'UPDATE__SELECTED_COMPONENT': {
             state.selectedComponentId = action.payload.componentId;
-
             return state;
         }
 
