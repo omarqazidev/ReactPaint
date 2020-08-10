@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoxModel } from '../../BoxModel';
+import { BoxModel } from '../../../elements/BoxModel';
 
 export function BoxModelView() {
     return (

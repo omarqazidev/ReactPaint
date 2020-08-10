@@ -1,11 +1,17 @@
-import { IAddComponentAction, ISelectComponentAction } from './../actions/componentActions';
+import {
+    IAddComponentAction,
+    ISelectComponentAction,
+    IUpdateCssAction,
+    IUpdateClassesAction,
+    IDeleteComponentAction,
+} from './../actions/componentActions';
 import { ComponentActions } from '../actions/componentActions';
 import Composite from '../../structures/Composite';
 import produce from 'immer';
 
 type ComponentState = {
     mainComponent: Composite;
-    selectedComponent: Composite | null;
+    selectedComponent: Composite;
 };
 
 const baseContainer = new Composite('container', '', {
@@ -14,9 +20,11 @@ const baseContainer = new Composite('container', '', {
     width: '100%',
 });
 
+const emptySelectedComponent = new Composite('', '', {});
+
 const initialState: ComponentState = {
     mainComponent: baseContainer,
-    selectedComponent: null,
+    selectedComponent: emptySelectedComponent,
 };
 
 const componentReducer = (state: ComponentState = initialState, action: ComponentActions) => {
@@ -28,6 +36,18 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
         case 'SELECT_COMPONENT':
             selectComponent(state, state.mainComponent, action);
             return;
+
+        case 'DELETE_SELECTED_COMPONENT':
+            deleteComponent(state.mainComponent, state.mainComponent, state.mainComponent, action);
+            return;
+
+        case 'UPDATE_COMPONENT_CSS':
+            updateCss(state.selectedComponent, action);
+            return;
+        case 'UPDATE_COMPONENT_CLASSES':
+            updateClasses(state.selectedComponent, action);
+            return;
+
         default:
             return state;
     }
@@ -55,7 +75,7 @@ function selectComponent(
     action: ISelectComponentAction
 ) {
     if (action.payload.componentId === '-1') {
-        state.selectedComponent = null;
+        state.selectedComponent = emptySelectedComponent;
     }
     if (component.id === action.payload.componentId) {
         state.selectedComponent = component;
@@ -64,4 +84,30 @@ function selectComponent(
     component.children.forEach((comp) => {
         selectComponent(state, comp, action);
     });
+}
+
+function deleteComponent(
+    mainComponent: Composite,
+    parentComponent: Composite,
+    thisComponent: Composite,
+    action: IDeleteComponentAction
+) {
+    if (mainComponent.id === action.payload) {
+        return;
+    } else if (thisComponent.id !== mainComponent.id && thisComponent.id === action.payload) {
+        parentComponent.removeChild(thisComponent.id);
+        return;
+    } else {
+        thisComponent.children.forEach((childComponent) => {
+            deleteComponent(mainComponent, thisComponent, childComponent, action);
+        });
+    }
+}
+
+function updateCss(selectedComponent: Composite, action: IUpdateCssAction) {
+    selectedComponent.css = { ...selectedComponent.css, ...action.payload };
+}
+
+function updateClasses(selectedComponent: Composite, action: IUpdateClassesAction) {
+    selectedComponent.classes = action.payload;
 }

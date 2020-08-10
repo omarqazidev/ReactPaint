@@ -10,4 +10,24 @@ export interface ISelectComponentAction {
     payload: { componentId: string };
 }
 
-export type ComponentActions = IAddComponentAction | ISelectComponentAction;
+export interface IUpdateCssAction {
+    readonly type: 'UPDATE_COMPONENT_CSS';
+    payload: React.CSSProperties;
+}
+
+export interface IUpdateClassesAction {
+    readonly type: 'UPDATE_COMPONENT_CLASSES';
+    payload: string;
+}
+
+export interface IDeleteComponentAction {
+    readonly type: 'DELETE_SELECTED_COMPONENT';
+    payload: string;
+}
+
+export type ComponentActions =
+    | IAddComponentAction
+    | ISelectComponentAction
+    | IUpdateCssAction
+    | IUpdateClassesAction
+    | IDeleteComponentAction;

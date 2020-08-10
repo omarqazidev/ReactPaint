@@ -13,6 +13,7 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
     const [value, setValue] = useState<string>('value');
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isSelected, setIsSelected] = useState<boolean>(false);
+    const [css, setCss] = useState<React.CSSProperties>({});
 
     const singleClick = (event: React.MouseEvent<any>) => (data: Composite) => {
         event.stopPropagation();
@@ -43,14 +44,21 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
             if (isSelected === false) {
                 data.value = value;
                 setElement(jsx);
+                console.log('erewr');
             } else {
                 let newElement = <div style={{ border: 'solid 1px black' }}>{jsx}</div>;
                 setElement(newElement);
+                console.log('www');
             }
         } else {
             setElement(textfield);
+            console.log('aa');
         }
-    }, [isEditing, value, data.css, isSelected]);
+
+        console.log('big');
+        //console.table(data);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isEditing, value, data.css, isSelected, selectedComponent!.css]);
 
     useEffect(() => {
         if (selectedComponent?.id !== data.id) {
@@ -58,7 +66,12 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
         } else {
             setIsSelected(true);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedComponent?.id]);
+
+    useEffect(() => {
+        setCss(selectedComponent!.css);
+    }, [selectedComponent!.css]);
 
     return element;
 };

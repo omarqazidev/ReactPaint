@@ -1,0 +1,95 @@
+html,
+body,
+.grid-container {
+    height: 100%;
+    margin: 0;
+    background-color: #202442;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+/* --text: #7076aa;
+--bg-1: #292e54;
+--bg-2: #202442;
+--bg-3: #2f3560; */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr 0.2fr;
+    gap: 1px 1px;
+}
+
+.inner {
+    grid-area: 4 / 4 / 5 / 5;
+}
+
+.mid {
+    grid-area: 3 / 3 / 6 / 6;
+}
+
+.out {
+    grid-area: 2 / 2 / 7 / 7;
+}
+
+/* For presentation only, no need to copy the code below */
+.grid-container * {
+    position: relative;
+}
+
+.grid-container *:after {
+    /* content: attr(class); */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.out {
+    border: 3px solid #bfc3db;
+    background-color: #53598a;
+    z-index: 1;
+}
+
+.mid {
+    border: 2px solid #8e95bb;
+    background-color: #3d4370;
+    z-index: 2;
+}
+
+.inner {
+    border: 2px solid #646c97;
+    background-color: #2f3560;
+    z-index: 3;
+}
+
+.parent {
+    position: relative;
+    color: white;
+}
+
+.top {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.right {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.bottom {
+    position: absolute;
+    right: 50%;
+    bottom: 0%;
+    transform: translate(50%, 0%);
+}
+
+.left {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
