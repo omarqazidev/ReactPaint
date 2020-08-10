@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useComponent } from '../../../redux';
 import Composite from '../../../structures/Composite';
-import { RPContainer, RPComponent } from '../../RPComponents';
+import { RPContainer, RPComponent } from '../../rp-components';
 import { ComponentActions } from '../../../redux/actions/componentActions';
 
 export function Renderer() {

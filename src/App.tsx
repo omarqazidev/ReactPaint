@@ -1,5 +1,5 @@
 import React from 'react';
-import MainScreen from './components/UserInterface/MainScreen';
+import MainScreen from './components/user-interface/MainScreen';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 

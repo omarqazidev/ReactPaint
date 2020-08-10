@@ -12,7 +12,7 @@ interface ContainerProps {
 
 export const RPContainer: React.FC<ContainerProps> = ({ data, divChildren }) => {
     let { id, css, classes } = data;
-    const { componentDispatch, selectedComponent } = useComponent();
+    const { componentDispatch } = useComponent();
     const [backgroundColor, setBackgroundColor] = useState('white');
     const [border, setBorder] = useState<React.ReactText>('none');
     const [height, setHeight] = useState<React.ReactText>('100px');

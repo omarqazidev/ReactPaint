@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../css/LeftSidebar.css';
+import '../../../css/left-sidebar.css';
 import ComponentButton from './ComponentButton';
 
 function LeftSidebar() {
