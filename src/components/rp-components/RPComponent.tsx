@@ -10,7 +10,7 @@ interface ComponentProps {
 export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
     const { componentDispatch, selectedComponent } = useComponent();
     const [element, setElement] = useState<ReactElement | null>(null);
-    const [value, setValue] = useState<string>('only inital value set');
+    const [value, setValue] = useState<string>('value');
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isSelected, setIsSelected] = useState<boolean>(false);
 
@@ -26,7 +26,7 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
         }
     };
 
-    const jsx = getJsx(data, value, singleClick, doubleClick);
+    const jsx = getJsx(data, value, setValue, singleClick, doubleClick);
 
     let textfield = (
         <input

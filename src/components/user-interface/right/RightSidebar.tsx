@@ -1,7 +1,9 @@
 import React from 'react';
-import SimpleBar from 'simplebar-react';
 import { useComponent } from '../../../redux';
 import '../../../css/right-sidebar.css';
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
+import { Accordion } from './accordion/Accordion';
 
 function RightSidebar() {
     const { selectedComponent } = useComponent();
@@ -17,10 +19,13 @@ function RightSidebar() {
                     <div className="right_properties">
                         <div className="right_element">
                             <div className="right_label">Selected Element</div>
-                            <input className="right_field" disabled value={selectedComponent?.id} />
+                            <input
+                                className="right_field"
+                                disabled
+                                value={selectedComponent?.id ? selectedComponent?.id : -1}
+                            />
                         </div>
-
-                        {/* <Accordion /> */}
+                        <Accordion />
                     </div>
                 </div>
             </SimpleBar>

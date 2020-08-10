@@ -4,6 +4,7 @@ import Composite from '../../structures/Composite';
 export function getJsx(
     data: Composite,
     value: string,
+    setValue: Function,
     singleClick: Function,
     doubleClick: Function
 ) {
@@ -55,7 +56,30 @@ export function getJsx(
                     className={data.classes}
                     onClick={(e) => singleClick(e)(data)}
                     onDoubleClick={(e) => doubleClick(e)}
-                    value={value}
+                    placeholder={value}
+                />
+            );
+        }
+
+        case 'image': {
+            let imageLink;
+            if (value === 'value') {
+                const heightOfRandomImage = Math.floor(Math.random() * (300 - 50 + 1)) + 50;
+                const widthOfRandomImage = Math.floor(Math.random() * (300 - 50 + 1)) + 50;
+                imageLink = `https://picsum.photos/${heightOfRandomImage}/${widthOfRandomImage}`;
+                setValue(imageLink);
+            } else {
+                imageLink = value;
+            }
+            return (
+                <img
+                    key={data.id}
+                    style={data.css}
+                    className={data.classes}
+                    onClick={(e) => singleClick(e)(data)}
+                    onDoubleClick={(e) => doubleClick(e)}
+                    src={imageLink}
+                    alt={value}
                 />
             );
         }

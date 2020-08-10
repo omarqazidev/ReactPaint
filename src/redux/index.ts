@@ -1,4 +1,4 @@
-import { UIActions } from './actions/uiActions';
+// import { UIActions } from './actions/uiActions';
 import { Dispatch } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers/rootReducer';
@@ -11,8 +11,8 @@ export function useComponent() {
     return { mainComponent, componentDispatch, selectedComponent };
 }
 
-export function useUI() {
-    const { selectedComponentId } = useSelector((state: AppState) => state.selectedComponent);
-    const UIDispatch = useDispatch<Dispatch<UIActions>>();
-    return { selectedComponentId, UIDispatch };
-}
+// export function useUI() {
+//     const { selectedComponentId } = useSelector((state: AppState) => state.selectedComponent);
+//     const UIDispatch = useDispatch<Dispatch<UIActions>>();
+//     return { selectedComponentId, UIDispatch };
+// }
