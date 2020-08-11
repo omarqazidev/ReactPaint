@@ -4,6 +4,7 @@ import {
     IUpdateCssAction,
     IUpdateClassesAction,
     IDeleteComponentAction,
+    IDuplicateComponentAction,
 } from './../actions/componentActions';
 import { ComponentActions } from '../actions/componentActions';
 import Composite from '../../structures/Composite';
@@ -39,14 +40,22 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
 
         case 'DELETE_SELECTED_COMPONENT':
             deleteComponent(state.mainComponent, state.mainComponent, state.mainComponent, action);
-            return;
+            return { ...state };
 
         case 'UPDATE_COMPONENT_CSS':
             updateCss(state.selectedComponent, action);
-            return;
+            return { ...state };
         case 'UPDATE_COMPONENT_CLASSES':
             updateClasses(state.selectedComponent, action);
             return;
+        case 'DUPLICATE_SELECTED_COMPONENT':
+            duplicateComponent(
+                state.mainComponent,
+                state.mainComponent,
+                state.mainComponent,
+                action
+            );
+            return { ...state };
 
         default:
             return state;
@@ -84,6 +93,31 @@ function selectComponent(
     component.children.forEach((comp) => {
         selectComponent(state, comp, action);
     });
+}
+
+function duplicateComponent(
+    mainComponent: Composite,
+    parentComponent: Composite,
+    thisComponent: Composite,
+    action: IDuplicateComponentAction
+) {
+    if (mainComponent.id === action.payload) {
+        return;
+    } else if (thisComponent.id !== mainComponent.id && thisComponent.id === action.payload) {
+        const newObject: Composite = new Composite(thisComponent.type, thisComponent.value, {
+            ...thisComponent.css,
+            backgroundColor: 'red',
+        });
+        thisComponent.children.forEach((child) => {
+            newObject.addChild(child);
+        });
+        parentComponent.addChild(newObject);
+        return;
+    } else {
+        thisComponent.children.forEach((childComponent) => {
+            duplicateComponent(mainComponent, thisComponent, childComponent, action);
+        });
+    }
 }
 
 function deleteComponent(

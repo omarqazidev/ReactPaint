@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useComponent } from '../../../../../redux';
 
-export function DeleteElementView() {
+export function DeleteComponentView() {
     const { selectedComponent, componentDispatch: dispatch } = useComponent();
 
-    function setElementToDelete() {
+    function setComponentToDelete() {
         dispatch({ type: 'DELETE_SELECTED_COMPONENT', payload: selectedComponent!.id });
     }
 
@@ -13,7 +13,7 @@ export function DeleteElementView() {
             <a className="uk-accordion-title">Delete</a>
 
             <div className="uk-accordion-content">
-                <div className="component_button" onClick={(e) => setElementToDelete()}>
+                <div className="component_button" onClick={(e) => setComponentToDelete()}>
                     Delete
                 </div>
             </div>

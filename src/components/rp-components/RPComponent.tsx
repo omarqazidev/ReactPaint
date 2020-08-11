@@ -45,7 +45,17 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
                 data.value = value;
                 setElement(jsx);
             } else {
-                let newElement = <div style={{ border: 'solid 1px black' }}>{jsx}</div>;
+                let newElement = (
+                    <div
+                        style={{
+                            border: 'solid 1px black',
+                            display: data.css.display,
+                            padding: '2px',
+                        }}
+                    >
+                        {jsx}
+                    </div>
+                );
                 setElement(newElement);
             }
         } else {

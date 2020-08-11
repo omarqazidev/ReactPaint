@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Dropdown, { Option } from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useComponent } from '../../../../../redux';

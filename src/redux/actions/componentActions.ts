@@ -25,9 +25,15 @@ export interface IDeleteComponentAction {
     payload: string;
 }
 
+export interface IDuplicateComponentAction {
+    readonly type: 'DUPLICATE_SELECTED_COMPONENT';
+    payload: string;
+}
+
 export type ComponentActions =
     | IAddComponentAction
     | ISelectComponentAction
     | IUpdateCssAction
     | IUpdateClassesAction
-    | IDeleteComponentAction;
+    | IDeleteComponentAction
+    | IDuplicateComponentAction;

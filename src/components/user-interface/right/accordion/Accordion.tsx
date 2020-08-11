@@ -3,9 +3,10 @@ import {
     LayoutView,
     BackgroundView,
     CustomView,
-    DeleteElementView,
     DisplayView,
     FontView,
+    DeleteComponentView,
+    DuplicateComponentView,
 } from './accordion-views';
 
 export const Accordion: React.FC = () => {
@@ -43,7 +44,13 @@ export const Accordion: React.FC = () => {
 
             <ul uk-accordion="multiple: true">
                 <li>
-                    <DeleteElementView />
+                    <DeleteComponentView />
+                </li>
+            </ul>
+
+            <ul uk-accordion="multiple: true">
+                <li>
+                    <DuplicateComponentView />
                 </li>
             </ul>
         </div>

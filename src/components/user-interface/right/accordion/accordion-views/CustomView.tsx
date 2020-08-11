@@ -1,6 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { ColorPicker } from '../elements/ColorPicker';
-import NumericInput from 'react-numeric-input';
+import React from 'react';
 import { parseCSS, parseStyleObject } from '../../../../../utils/cssparser';
 import { useComponent } from '../../../../../redux';
 
