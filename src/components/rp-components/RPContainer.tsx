@@ -86,13 +86,12 @@ function useDivDrop(backgroundColor: string, border: ReactText, elementId: strin
             if (didDrop && true) {
                 return;
             }
-            console.log(item.value);
 
             componentDispatch({
                 type: 'ADD_COMPONENT',
                 payload: {
                     parentId: elementId,
-                    component: new Composite(item.value.toLowerCase(), 'random', {}),
+                    component: new Composite(item.value.toLowerCase(), '', {}),
                 },
             });
         },

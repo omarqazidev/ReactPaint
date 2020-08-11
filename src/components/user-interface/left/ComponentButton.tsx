@@ -35,7 +35,6 @@ const ComponentButton: React.FC<ComponentButtonProps> = ({ componentData }) => {
                 ref={drag}
                 className="component_button"
                 style={{ backgroundColor: backgroundColorValue, opacity: opacityValue }}
-                onClick={(e) => console.log(e.currentTarget)}
             >
                 {componentData.name}
             </div>

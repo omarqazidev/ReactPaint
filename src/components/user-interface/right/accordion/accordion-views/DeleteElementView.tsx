@@ -13,7 +13,7 @@ export function DeleteElementView() {
             <a className="uk-accordion-title">Delete</a>
 
             <div className="uk-accordion-content">
-                <div className="e_element" onClick={(e) => setElementToDelete()}>
+                <div className="component_button" onClick={(e) => setElementToDelete()}>
                     Delete
                 </div>
             </div>

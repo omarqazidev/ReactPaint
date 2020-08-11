@@ -84,6 +84,73 @@ export function getJsx(
             );
         }
 
+        case 'video':
+            let videoLink;
+            if (value === 'value') {
+                videoLink = 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4';
+                // videoLink = 'http://techslides.com/demos/sample-videos/small.mp4';
+            } else {
+                videoLink = value;
+            }
+            return (
+                <div
+                    key={data.id}
+                    onClick={(e) => singleClick(e)(data)}
+                    onDoubleClick={(e) => doubleClick(e)}
+                    style={data.css}
+                    className={data.classes}
+                >
+                    <video autoPlay>
+                        <source src={videoLink} type="video/mp4" />
+                    </video>
+                </div>
+            );
+
+        case 'audio':
+            let audioLink;
+            if (value === 'value') {
+                audioLink =
+                    'https://www.naatsharif.com/download-mp3/junaid-jamshed/mujhe-zindagi-mein-ya-rab.mp3';
+            } else {
+                audioLink = value;
+            }
+            return (
+                <div
+                    key={data.id}
+                    onClick={(e) => singleClick(e)(data)}
+                    onDoubleClick={(e) => doubleClick(e)}
+                    className={data.classes}
+                    style={{ ...data.css, padding: '10px' }}
+                >
+                    <audio autoPlay controls src={audioLink}></audio>
+                </div>
+            );
+
+        case 'iframe':
+            let iFrameLink;
+            if (value === 'value') {
+                iFrameLink = 'https://dev.to/omarqazidev';
+            } else {
+                iFrameLink = value;
+            }
+            return (
+                <div
+                    key={data.id}
+                    onClick={(e) => singleClick(e)(data)}
+                    onDoubleClick={(e) => doubleClick(e)}
+                    className={data.classes}
+                    style={{ ...data.css, padding: '5px' }}
+                >
+                    <iframe
+                        width={data.css.width}
+                        height={data.css.height}
+                        src={iFrameLink}
+                        frameBorder={0}
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            );
+
         default: {
             return (
                 <p

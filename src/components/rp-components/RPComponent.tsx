@@ -44,18 +44,14 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
             if (isSelected === false) {
                 data.value = value;
                 setElement(jsx);
-                console.log('erewr');
             } else {
                 let newElement = <div style={{ border: 'solid 1px black' }}>{jsx}</div>;
                 setElement(newElement);
-                console.log('www');
             }
         } else {
             setElement(textfield);
-            console.log('aa');
         }
 
-        console.log('big');
         //console.table(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isEditing, value, data.css, isSelected, selectedComponent!.css]);
@@ -68,10 +64,6 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedComponent?.id]);
-
-    useEffect(() => {
-        setCss(selectedComponent!.css);
-    }, [selectedComponent!.css]);
 
     return element;
 };

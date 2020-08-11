@@ -19,12 +19,40 @@
     padding: 5px;
     margin-left: 20px;
     margin-right: 20px;
-
+    margin-top: 10px;
     text-align: center;
-    background-color: #202442;
+
     border-radius: 4px;
 }
 
+.p_label {
+    text-align: left;
+}
+
+.p_field {
+    padding: 5px;
+    color: #9599c2;
+    background-color: #393f6d;
+    font-size: 14px;
+    width: 230px;
+    border: none;
+    /* border-radius: 4px; */
+}
+
+.component_button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 15px 20px 15px 20px;
+    background-color: #2d325a;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.component_button:hover {
+    background-color: #3c4374;
+    color: #8186bd;
+}
 .right_label {
     text-align: left;
 }
