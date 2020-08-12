@@ -212,6 +212,23 @@ function updateBackgroundColor(
 }
 
 function importJsonAsProject(state: ComponentState, action: IImportJsonAsProjectAction) {
-    const parsedJson = JSON.parse(action.payload);
-    state.mainComponent = parsedJson;
+    const parsedJson: Composite = JSON.parse(action.payload);
+    // state.mainComponent = { ...parsedJson };
+
+    let newObject: Composite = new Composite(parsedJson.type, parsedJson.value, {
+        ...parsedJson.css,
+    });
+    newObject.classes = parsedJson.classes;
+    parsedJson.children.forEach((child) => {
+        newObject.addChild(child);
+    });
+
+    state.selectedComponent = new Composite('', '', {});
+    // state.selectedComponent = new state.mainComponent() = new Composite('container', '', {
+    //     backgroundColor: 'white',
+    //     height: '89vh',
+    //     width: '100%',
+    //     overflow: 'auto',
+    // });
+    // state.selectedComponent = new Composite('', '', {});
 }
