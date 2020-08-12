@@ -32,4 +32,7 @@ const components: { id: number; name: string }[] = [
     // { id: 13, name: 'Slider' },
     { id: 14, name: '-' },
     { id: 15, name: 'iFrame' },
+    { id: 16, name: '-' },
+    { id: 17, name: 'Carousel' },
 ];
+//carousel

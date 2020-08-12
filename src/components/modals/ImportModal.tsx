@@ -5,9 +5,9 @@ import '../../css/modal.css';
 
 Modal.setAppElement('#root');
 
-export function ImportModal() {
+export const ImportModal = () => {
     const { importModalOpen, UIDispatch } = useUI();
-    const { componentDispatch } = useComponent();
+    const { componentDispatch, mainComponent } = useComponent();
     const [jsonString, setJsonString] = useState('');
 
     return (
@@ -21,7 +21,11 @@ export function ImportModal() {
                 content: { ...contentStyle },
             }}
         >
-            <p style={{ fontSize: '24px' }}>Import Project with JSON</p>
+            <p style={{ fontSize: '24px' }}>Load Project with JSON</p>
+            <p style={{ fontSize: '12px' }}>
+                Either grab project json with [Get Current Project], or Copy-Paste project json
+                below.
+            </p>
             <div style={contentDivStyle}>
                 <textarea
                     className={'import-modal-field'}
@@ -37,6 +41,14 @@ export function ImportModal() {
                     <div
                         className={'import-modal-button'}
                         onClick={() => {
+                            setJsonString(JSON.stringify(mainComponent));
+                        }}
+                    >
+                        Get Current Project
+                    </div>
+                    <div
+                        className={'import-modal-button'}
+                        onClick={() => {
                             componentDispatch({
                                 type: 'IMPORT_JSON_AS_PROJECT',
                                 payload: jsonString,
@@ -45,7 +57,7 @@ export function ImportModal() {
                             UIDispatch({ type: 'UPDATE_IMPORT_MODAL', payload: { isOpen: false } });
                         }}
                     >
-                        Import
+                        Load
                     </div>
                     <div
                         className={'import-modal-button'}
@@ -59,7 +71,7 @@ export function ImportModal() {
             </div>
         </Modal>
     );
-}
+};
 
 const overlayStyle: React.CSSProperties = {
     backgroundColor: 'rgba(32, 36, 66, 0.65)',

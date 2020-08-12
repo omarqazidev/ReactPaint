@@ -152,6 +152,114 @@ export function getJsx(
                 </div>
             );
 
+        case 'carousel':
+            let sliderWidth: React.CSSProperties = {};
+            let sliderHeight: React.CSSProperties = {};
+            let sliderImg: React.CSSProperties = {
+                maxWidth: '100% !important',
+                maxHeight: '100% !important',
+            };
+
+            if (!data.css.height) {
+                sliderHeight = {
+                    height: '200px',
+                };
+            } else {
+                sliderHeight = {
+                    height: data.css.height,
+                };
+            }
+
+            if (!data.css.width) {
+                sliderWidth = {
+                    width: '400px',
+                };
+            } else {
+                sliderWidth = {
+                    width: data.css.width,
+                };
+            }
+
+            let sliderImages = {
+                img1: `https://images.unsplash.com/photo-1532289735437-a07b8f3240e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+                img2: `https://images.unsplash.com/photo-1526404801122-40fc40fca08f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+                img3: `https://images.unsplash.com/photo-1519336305162-4b6ed6b6fc83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+            };
+            if (value !== 'value') {
+                const arrOfLinks = value.split(';');
+                sliderImages.img1 = arrOfLinks[0];
+                sliderImages.img2 = arrOfLinks[1];
+                sliderImages.img3 = arrOfLinks[2];
+            }
+
+            return (
+                <div
+                    style={{ ...sliderWidth, padding: '5px', ...data.css }}
+                    onClick={(e) => singleClick(e)(data)}
+                    onDoubleClick={(e) => doubleClick(e)}
+                >
+                    <div
+                        id="carouselExampleIndicators"
+                        className="carousel slide"
+                        data-ride="carousel"
+                    >
+                        <ol className="carousel-indicators">
+                            <li
+                                data-target="#carouselExampleIndicators"
+                                data-slide-to="0"
+                                className="active"
+                            ></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div className="carousel-inner">
+                            <div className="carousel-item active" style={sliderHeight}>
+                                <img
+                                    src={sliderImages.img1}
+                                    className="d-block w-100"
+                                    alt="..."
+                                    style={sliderImg}
+                                />
+                            </div>
+                            <div className="carousel-item" style={sliderHeight}>
+                                <img
+                                    src={sliderImages.img2}
+                                    className="d-block w-100"
+                                    alt="..."
+                                    style={sliderImg}
+                                />
+                            </div>
+                            <div className="carousel-item" style={sliderHeight}>
+                                <img
+                                    src={sliderImages.img3}
+                                    className="d-block w-100"
+                                    alt="..."
+                                    style={sliderImg}
+                                />
+                            </div>
+                        </div>
+                        <a
+                            className="carousel-control-prev"
+                            href="#carouselExampleIndicators"
+                            role="button"
+                            data-slide="prev"
+                        >
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
+                        </a>
+                        <a
+                            className="carousel-control-next"
+                            href="#carouselExampleIndicators"
+                            role="button"
+                            data-slide="next"
+                        >
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            );
+
         default: {
             return (
                 <p

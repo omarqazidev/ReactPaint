@@ -13,6 +13,7 @@ export function useComponent() {
 
 export function useUI() {
     const { importModalOpen } = useSelector((state: AppState) => state.ui);
+    const { projectJson } = useSelector((state: AppState) => state.ui);
     const UIDispatch = useDispatch<Dispatch<UIActions>>();
-    return { importModalOpen, UIDispatch };
+    return { importModalOpen, UIDispatch, projectJson };
 }
