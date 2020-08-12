@@ -22,7 +22,13 @@ export const RPContainer: React.FC<ContainerProps> = ({ data, divChildren }) => 
         if (!css.backgroundColor) {
             const someRandomColor = randomColor();
             setBackgroundColor(someRandomColor);
+            componentDispatch({
+                type: 'UPDATE_COMPONENT_BACKGROUND_COLOR',
+                payload: { componentId: data.id, backgroundColor: someRandomColor },
+            });
             css.backgroundColor = someRandomColor;
+        } else if (css.backgroundColor) {
+            setBackgroundColor(css.backgroundColor);
         }
 
         if (!css.border) {
@@ -44,6 +50,7 @@ export const RPContainer: React.FC<ContainerProps> = ({ data, divChildren }) => 
         } else {
             setWidth(css.width);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [css]);
 
     const { drop, divBackgroundColor, divBorder } = useDivDrop(backgroundColor, border, data.id);

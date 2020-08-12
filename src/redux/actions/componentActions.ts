@@ -30,10 +30,16 @@ export interface IDuplicateComponentAction {
     payload: string;
 }
 
+export interface IUpdateComponentBackgroundColorAction {
+    readonly type: 'UPDATE_COMPONENT_BACKGROUND_COLOR';
+    payload: { componentId: string; backgroundColor: string };
+}
+
 export type ComponentActions =
     | IAddComponentAction
     | ISelectComponentAction
     | IUpdateCssAction
     | IUpdateClassesAction
     | IDeleteComponentAction
-    | IDuplicateComponentAction;
+    | IDuplicateComponentAction
+    | IUpdateComponentBackgroundColorAction;

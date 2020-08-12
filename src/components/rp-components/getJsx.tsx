@@ -145,6 +145,7 @@ export function getJsx(
                         width={data.css.width}
                         height={data.css.height}
                         src={iFrameLink}
+                        title={'iFrame'}
                         frameBorder={0}
                         allowFullScreen
                     ></iframe>

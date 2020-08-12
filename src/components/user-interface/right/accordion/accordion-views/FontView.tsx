@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import NumericInput from 'react-numeric-input';
 import { ColorPicker } from '../elements/ColorPicker';

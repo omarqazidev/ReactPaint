@@ -39,7 +39,7 @@
     /* border-radius: 4px; */
 }
 
-.component_button {
+.right_component_button {
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 15px 20px 15px 20px;
@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 
-.component_button:hover {
+.right_component_button:hover {
     background-color: #3c4374;
     color: #8186bd;
 }

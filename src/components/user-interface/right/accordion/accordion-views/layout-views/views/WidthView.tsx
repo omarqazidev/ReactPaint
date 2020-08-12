@@ -1,26 +1,28 @@
-import React, { useContext } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
+import React from 'react';
 import NumericInput from 'react-numeric-input';
 import { useComponent } from '../../../../../../../redux';
 
-export function WeightView() {
+export function WidthView() {
     const { selectedComponent, componentDispatch: dispatch } = useComponent();
 
     function onValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: `${value}px` } });
         }
     }
 
     function onMinValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minWidth: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minWidth: `${value}px` } });
         }
     }
 
     function onMaxValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxWidth: value } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxWidth: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: `${value}px` } });
         }
     }
 

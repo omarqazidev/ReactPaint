@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
+import React from 'react';
 import NumericInput from 'react-numeric-input';
 import { useComponent } from '../../../../../../../redux';
 
@@ -7,20 +9,20 @@ export function HeightView() {
 
     function onValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: `${value}px` } });
         }
     }
 
     function onMinValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minHeight: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minHeight: `${value}px` } });
         }
     }
 
     function onMaxValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxHeight: value } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxHeight: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: `${value}px` } });
         }
     }
 

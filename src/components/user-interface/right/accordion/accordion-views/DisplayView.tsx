@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import Dropdown, { Option } from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useComponent } from '../../../../../redux';
 
 export function DisplayView() {
-    const { selectedComponent, componentDispatch: dispatch } = useComponent();
+    const { componentDispatch: dispatch } = useComponent();
 
     const options = [
         'select display',

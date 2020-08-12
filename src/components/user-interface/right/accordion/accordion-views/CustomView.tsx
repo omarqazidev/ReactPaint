@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import { parseCSS, parseStyleObject } from '../../../../../utils/cssparser';
 import { useComponent } from '../../../../../redux';
@@ -34,7 +36,7 @@ export function CustomView() {
                         <input
                             className="p_field"
                             style={{ width: '100px' }}
-                            value={parseStyleObject(selectedComponent!.css)}
+                            value={styleString}
                             onChange={(v) => onCustomCssChange(v.target.value)}
                         />
                     </div>

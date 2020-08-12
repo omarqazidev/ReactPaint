@@ -20,3 +20,14 @@ export const parseStyleObject = (css: React.CSSProperties) => {
         .join(';');
     return styleString;
 };
+
+export function cssObjectToString(cssObject: any) {
+    let cssString = '';
+    console.log(cssObject);
+    Object.keys(cssObject).forEach((key) => {
+        if (cssObject[key] !== undefined) {
+            cssString = cssString + `${key}:"${cssObject[key]}", `;
+        }
+    });
+    return cssString;
+}

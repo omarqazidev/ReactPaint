@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
+import React from 'react';
 import NumericInput from 'react-numeric-input';
 import { useComponent } from '../../../../../../../redux';
 
@@ -11,35 +13,35 @@ export function PaddingView() {
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: undefined } });
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: undefined } });
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: `${value}px` } });
         }
     }
 
     function onTopValueChange(value: number | null) {
         if (value) {
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingTop: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingTop: `${value}px` } });
         }
     }
 
     function onRightValueChange(value: number | null) {
         if (value) {
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: `${value}px` } });
         }
     }
 
     function onBottomValueChange(value: number | null) {
         if (value) {
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: `${value}px` } });
         }
     }
 
     function onLeftValueChange(value: number | null) {
         if (value) {
             dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: value } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: `${value}px` } });
         }
     }
 

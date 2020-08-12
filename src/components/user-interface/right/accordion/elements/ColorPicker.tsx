@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { SketchPicker, ColorChangeHandler, ColorResult } from 'react-color';
 import { useComponent } from '../../../../../redux';
 
@@ -7,7 +7,7 @@ interface ColorPickerProps {
 }
 
 export const ColorPicker: React.FC<ColorPickerProps> = ({ text }) => {
-    const { selectedComponent, componentDispatch: dispatch } = useComponent();
+    const { componentDispatch: dispatch } = useComponent();
 
     const [color, setColor] = useState<ColorResult>();
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -107,5 +107,6 @@ function useOutsideClick(ref: React.RefObject<HTMLDivElement>, callback: Functio
             document.addEventListener('click', handler);
             return () => document.removeEventListener('click', handler);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [when]);
 }

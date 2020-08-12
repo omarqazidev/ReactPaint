@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { BoxModelView } from './views/BoxModelView';
-import { HeightView, WeightView, MarginView, PaddingView } from './views';
+import { HeightView, WidthView, MarginView, PaddingView } from './views';
 // import { BoxModelView, HeightView, WeightView, MarginView, PaddingView } from './';
 
 export function LayoutView() {
@@ -16,7 +16,7 @@ export function LayoutView() {
                     <ul uk-accordion="multiple: true">
                         <HeightView />
 
-                        <WeightView />
+                        <WidthView />
 
                         <MarginView />
 

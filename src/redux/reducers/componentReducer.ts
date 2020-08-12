@@ -5,6 +5,7 @@ import {
     IUpdateClassesAction,
     IDeleteComponentAction,
     IDuplicateComponentAction,
+    IUpdateComponentBackgroundColorAction,
 } from './../actions/componentActions';
 import { ComponentActions } from '../actions/componentActions';
 import Composite from '../../structures/Composite';
@@ -17,8 +18,9 @@ type ComponentState = {
 
 const baseContainer = new Composite('container', '', {
     backgroundColor: 'white',
-    height: '100%',
+    height: '89vh',
     width: '100%',
+    overflow: 'auto',
 });
 
 const emptySelectedComponent = new Composite('', '', {});
@@ -43,7 +45,7 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
             return { ...state };
 
         case 'UPDATE_COMPONENT_CSS':
-            updateCss(state.selectedComponent, action);
+            updateCss(state.mainComponent, state.selectedComponent, action);
             return { ...state };
         case 'UPDATE_COMPONENT_CLASSES':
             updateClasses(state.selectedComponent, action);
@@ -55,6 +57,10 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
                 state.mainComponent,
                 action
             );
+            return { ...state };
+
+        case 'UPDATE_COMPONENT_BACKGROUND_COLOR':
+            updateBackgroundColor(state.mainComponent, action);
             return { ...state };
 
         default:
@@ -106,7 +112,6 @@ function duplicateComponent(
     } else if (thisComponent.id !== mainComponent.id && thisComponent.id === action.payload) {
         const newObject: Composite = new Composite(thisComponent.type, thisComponent.value, {
             ...thisComponent.css,
-            backgroundColor: 'red',
         });
         thisComponent.children.forEach((child) => {
             newObject.addChild(child);
@@ -138,10 +143,49 @@ function deleteComponent(
     }
 }
 
-function updateCss(selectedComponent: Composite, action: IUpdateCssAction) {
-    selectedComponent.css = { ...selectedComponent.css, ...action.payload };
+function updateCss(
+    mainComponent: Composite,
+    selectedComponent: Composite,
+    action: IUpdateCssAction
+) {
+    let css: React.CSSProperties = { ...action.payload };
+    if (selectedComponent.id === mainComponent.id) {
+        delete css['height'];
+        delete css['minHeight'];
+        delete css['maxHeight'];
+
+        delete css['width'];
+        delete css['minWidth'];
+        delete css['maxWidth'];
+
+        delete css['margin'];
+        delete css['marginTop'];
+        delete css['marginBottom'];
+        delete css['marginRight'];
+        delete css['marginLeft'];
+
+        delete css['padding'];
+        delete css['paddingTop'];
+        delete css['paddingBottom'];
+        delete css['paddingRight'];
+        delete css['paddingLeft'];
+    }
+    selectedComponent.css = { ...selectedComponent.css, ...css };
 }
 
 function updateClasses(selectedComponent: Composite, action: IUpdateClassesAction) {
     selectedComponent.classes = action.payload;
+}
+
+function updateBackgroundColor(
+    component: Composite,
+    action: IUpdateComponentBackgroundColorAction
+) {
+    if (action.payload.componentId === component.id) {
+        component.css = { ...component.css, backgroundColor: action.payload.backgroundColor };
+        return;
+    }
+    component.children.forEach((child) => {
+        updateBackgroundColor(child, action);
+    });
 }

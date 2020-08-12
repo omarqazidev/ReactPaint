@@ -17,7 +17,7 @@ export const Accordion: React.FC = () => {
                     <LayoutView />
                 </li>
             </ul>
-            <div className="p_divider" />
+            <div className="right_divider" />
             <ul uk-accordion="multiple: true">
                 <li>
                     <BackgroundView />

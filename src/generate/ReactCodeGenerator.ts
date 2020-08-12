@@ -1,14 +1,10 @@
 import Composite from '../structures/Composite';
+import { cssObjectToString } from '../utils/cssparser';
 
 export function generateCode(component: Composite) {
     let reactAppCode: string = `
     import React from 'react';
-    import { render } from 'react-dom';
-
-    render(
-        <App />,
-        document.getElementById('root')
-    );
+    
     
     export function ReactPaintApp() {
 
@@ -122,7 +118,7 @@ function getJsxString(data: Composite) {
 function getKeyStyleClass(data: Composite) {
     return `
             key={"${data.id}"}
-            style={{${cssJSONToReactCSS(data)}}}
+            style={{${cssObjectToString(data.css)}}}
             className={"${data.classes}"}`;
 }
 
@@ -130,15 +126,24 @@ function getValue(data: Composite) {
     return `"${data.value}"`;
 }
 
-function cssJSONToReactCSS(data: Composite) {
-    let reactCSS: string = `${JSON.stringify(data.css)}`;
-    reactCSS = reactCSS
-        .split(`":"`)
-        .join(`:"`)
-        .split(`","`)
-        .join(`",`)
-        .substring(2)
-        .replace('}', '');
-    console.log(reactCSS);
-    return reactCSS;
-}
+// function cssJSONToReactCSS(data: Composite) {
+//     let reactCSS: string = `${JSON.stringify(data.css)}`;
+//     reactCSS = reactCSS
+//         .split(`":"`)
+//         .join(`:"`)
+//         .split(`","`)
+//         .join(`",`)
+//         .substring(2)
+//         .replace('}', '');
+//     console.log(reactCSS);
+//     return reactCSS;
+// }
+
+/*
+import { render } from 'react-dom';
+
+    render(
+        <ReactPaintApp />,
+        document.getElementById('root')
+    );
+*/

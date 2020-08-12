@@ -13,7 +13,6 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
     const [value, setValue] = useState<string>('value');
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isSelected, setIsSelected] = useState<boolean>(false);
-    const [css, setCss] = useState<React.CSSProperties>({});
 
     const singleClick = (event: React.MouseEvent<any>) => (data: Composite) => {
         event.stopPropagation();

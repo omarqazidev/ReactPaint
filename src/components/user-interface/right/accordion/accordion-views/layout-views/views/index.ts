@@ -1,4 +1,4 @@
 export * from './HeightView';
-export * from './WeightView';
+export * from './WidthView';
 export * from './MarginView';
 export * from './PaddingView';
