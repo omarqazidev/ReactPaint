@@ -1,27 +1,32 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { parseCSS, parseStyleObject } from '../../../../../utils/cssparser';
 import { useComponent } from '../../../../../redux';
 
 export function CustomView() {
     const { selectedComponent, componentDispatch: dispatch } = useComponent();
-    const styleString = parseStyleObject(selectedComponent!.css);
+    const [customCss, setCustomCss] = useState('');
+    const [customClasses, setCustomClasses] = useState('');
+    // const styleString = parseStyleObject(selectedComponent!.css);
 
-    function onCustomCssChange(value: string | null) {
+    function onCustomCssChange(value: string) {
         if (value) {
             const parsedCss = parseCSS(value);
 
             dispatch({
                 type: 'UPDATE_COMPONENT_CSS',
-                payload: { ...selectedComponent?.css, ...parsedCss },
+                payload: { ...parsedCss },
             });
+            setCustomCss(value);
         }
     }
 
-    function onCustomClassChange(value: string | null) {
+    function onCustomClassChange(value: string) {
         if (value) {
             dispatch({ type: 'UPDATE_COMPONENT_CLASSES', payload: value });
+            console.log(value);
+            setCustomClasses(value);
         }
     }
 
@@ -36,7 +41,7 @@ export function CustomView() {
                         <input
                             className="p_field"
                             style={{ width: '100px' }}
-                            value={styleString}
+                            value={customCss}
                             onChange={(v) => onCustomCssChange(v.target.value)}
                         />
                     </div>
@@ -47,7 +52,7 @@ export function CustomView() {
                         <input
                             className="p_field"
                             style={{ width: '100px' }}
-                            value={selectedComponent?.classes}
+                            value={customClasses}
                             onChange={(v) => onCustomClassChange(v.target.value)}
                         />
                     </div>

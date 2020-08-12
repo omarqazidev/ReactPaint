@@ -35,6 +35,15 @@ export interface IUpdateComponentBackgroundColorAction {
     payload: { componentId: string; backgroundColor: string };
 }
 
+export interface IImportJsonAsProjectAction {
+    readonly type: 'IMPORT_JSON_AS_PROJECT';
+    payload: string;
+}
+
+export interface INewProjectAction {
+    readonly type: 'NEW_PROJECT';
+}
+
 export type ComponentActions =
     | IAddComponentAction
     | ISelectComponentAction
@@ -42,4 +51,6 @@ export type ComponentActions =
     | IUpdateClassesAction
     | IDeleteComponentAction
     | IDuplicateComponentAction
-    | IUpdateComponentBackgroundColorAction;
+    | IUpdateComponentBackgroundColorAction
+    | IImportJsonAsProjectAction
+    | INewProjectAction;

@@ -2,17 +2,17 @@ import { UIActions } from '../actions/uiActions';
 import produce from 'immer';
 
 type UIState = {
-    selectedComponentId: string;
+    importModalOpen: boolean;
 };
 
 const initialState: UIState = {
-    selectedComponentId: '-1',
+    importModalOpen: false,
 };
 
 const uiReducer = (state: UIState = initialState, action: UIActions) => {
     switch (action.type) {
-        case 'UPDATE__SELECTED_COMPONENT': {
-            state.selectedComponentId = action.payload.componentId;
+        case 'UPDATE_IMPORT_MODAL': {
+            state.importModalOpen = action.payload.isOpen;
             return state;
         }
 

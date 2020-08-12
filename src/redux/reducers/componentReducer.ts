@@ -6,6 +6,7 @@ import {
     IDeleteComponentAction,
     IDuplicateComponentAction,
     IUpdateComponentBackgroundColorAction,
+    IImportJsonAsProjectAction,
 } from './../actions/componentActions';
 import { ComponentActions } from '../actions/componentActions';
 import Composite from '../../structures/Composite';
@@ -49,7 +50,8 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
             return { ...state };
         case 'UPDATE_COMPONENT_CLASSES':
             updateClasses(state.selectedComponent, action);
-            return;
+            return { ...state };
+
         case 'DUPLICATE_SELECTED_COMPONENT':
             duplicateComponent(
                 state.mainComponent,
@@ -63,12 +65,30 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
             updateBackgroundColor(state.mainComponent, action);
             return { ...state };
 
+        case 'IMPORT_JSON_AS_PROJECT':
+            importJsonAsProject(state, action);
+            return state;
+
+        case 'NEW_PROJECT':
+            newProject(state);
+            return state;
+
         default:
             return state;
     }
 };
 
 export const curriedComponentReducer = produce(componentReducer);
+
+function newProject(state: ComponentState) {
+    state.mainComponent = new Composite('container', '', {
+        backgroundColor: 'white',
+        height: '89vh',
+        width: '100%',
+        overflow: 'auto',
+    });
+    state.selectedComponent = new Composite('', '', {});
+}
 
 function addComponent(component: Composite, action: IAddComponentAction) {
     if (action.payload.parentId === '-1') {
@@ -110,9 +130,10 @@ function duplicateComponent(
     if (mainComponent.id === action.payload) {
         return;
     } else if (thisComponent.id !== mainComponent.id && thisComponent.id === action.payload) {
-        const newObject: Composite = new Composite(thisComponent.type, thisComponent.value, {
+        let newObject: Composite = new Composite(thisComponent.type, thisComponent.value, {
             ...thisComponent.css,
         });
+        newObject.classes = thisComponent.classes;
         thisComponent.children.forEach((child) => {
             newObject.addChild(child);
         });
@@ -188,4 +209,9 @@ function updateBackgroundColor(
     component.children.forEach((child) => {
         updateBackgroundColor(child, action);
     });
+}
+
+function importJsonAsProject(state: ComponentState, action: IImportJsonAsProjectAction) {
+    const parsedJson = JSON.parse(action.payload);
+    state.mainComponent = parsedJson;
 }

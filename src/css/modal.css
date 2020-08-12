@@ -1,0 +1,33 @@
+.import-modal-field {
+    padding: 5px;
+    color: #9599c2;
+    background-color: #393f6d;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    /* width: 230px; */
+    border: none;
+    /* border-radius: 4px; */
+}
+
+.import-modal-field:focus {
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    border-bottom: 2px solid #9599c2;
+}
+
+.import-modal-button {
+    text-align: center;
+    background-color: #2d325a;
+    padding: 10px 10px 10px 10px;
+    width: 300px;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.import-modal-button:hover {
+    background-color: #3c4374;
+    color: #8186bd;
+}
