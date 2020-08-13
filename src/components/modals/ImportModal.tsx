@@ -41,7 +41,7 @@ export const ImportModal = () => {
                     <div
                         className={'import-modal-button'}
                         onClick={() => {
-                            setJsonString(JSON.stringify(mainComponent));
+                            setJsonString(JSON.stringify(mainComponent, null, '\t'));
                         }}
                     >
                         Get Current Project
