@@ -6,7 +6,8 @@ export function getJsx(
     value: string,
     setValue: Function,
     singleClick: Function,
-    doubleClick: Function
+    doubleClick: Function,
+    componentDispatch: Function
 ) {
     switch (data.type.toLowerCase()) {
         case 'text': {
@@ -64,10 +65,14 @@ export function getJsx(
         case 'image': {
             let imageLink;
             if (value === 'value') {
-                const heightOfRandomImage = Math.floor(Math.random() * (300 - 50 + 1)) + 50;
-                const widthOfRandomImage = Math.floor(Math.random() * (300 - 50 + 1)) + 50;
+                const heightOfRandomImage = Math.floor(Math.random() * (800 - 100 + 1)) + 100;
+                const widthOfRandomImage = Math.floor(Math.random() * (800 - 100 + 1)) + 100;
                 imageLink = `https://picsum.photos/${heightOfRandomImage}/${widthOfRandomImage}`;
                 setValue(imageLink);
+                componentDispatch({
+                    type: 'UPDATE_VALUE',
+                    payload: { componentId: data.id, valueToUpdate: imageLink },
+                });
             } else {
                 imageLink = value;
             }
@@ -89,6 +94,10 @@ export function getJsx(
             if (value === 'value') {
                 videoLink = 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4';
                 // videoLink = 'http://techslides.com/demos/sample-videos/small.mp4';
+                componentDispatch({
+                    type: 'UPDATE_VALUE',
+                    payload: { componentId: data.id, valueToUpdate: videoLink },
+                });
             } else {
                 videoLink = value;
             }
@@ -111,6 +120,10 @@ export function getJsx(
             if (value === 'value') {
                 audioLink =
                     'https://www.naatsharif.com/download-mp3/junaid-jamshed/mujhe-zindagi-mein-ya-rab.mp3';
+                componentDispatch({
+                    type: 'UPDATE_VALUE',
+                    payload: { componentId: data.id, valueToUpdate: audioLink },
+                });
             } else {
                 audioLink = value;
             }
@@ -130,6 +143,10 @@ export function getJsx(
             let iFrameLink;
             if (value === 'value') {
                 iFrameLink = 'https://dev.to/omarqazidev';
+                componentDispatch({
+                    type: 'UPDATE_VALUE',
+                    payload: { componentId: data.id, valueToUpdate: iFrameLink },
+                });
             } else {
                 iFrameLink = value;
             }
@@ -179,17 +196,29 @@ export function getJsx(
                     width: data.css.width,
                 };
             }
-
             let sliderImages = {
-                img1: `https://images.unsplash.com/photo-1532289735437-a07b8f3240e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-                img2: `https://images.unsplash.com/photo-1526404801122-40fc40fca08f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-                img3: `https://images.unsplash.com/photo-1519336305162-4b6ed6b6fc83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+                img1: '',
+                img2: '',
+                img3: '',
             };
-            if (value !== 'value') {
-                const arrOfLinks = value.split(';');
-                sliderImages.img1 = arrOfLinks[0];
-                sliderImages.img2 = arrOfLinks[1];
-                sliderImages.img3 = arrOfLinks[2];
+            if (value === 'value') {
+                sliderImages = {
+                    img1: `https://images.unsplash.com/photo-1532289735437-a07b8f3240e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+                    img2: `https://images.unsplash.com/photo-1526404801122-40fc40fca08f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+                    img3: `https://images.unsplash.com/photo-1519336305162-4b6ed6b6fc83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+                };
+                const sliderImagesString = `${sliderImages.img1};${sliderImages.img2};${sliderImages.img3};`;
+                componentDispatch({
+                    type: 'UPDATE_VALUE',
+                    payload: { componentId: data.id, valueToUpdate: sliderImagesString },
+                });
+            } else {
+                if (value !== 'value') {
+                    const arrOfLinks = value.split(';');
+                    sliderImages.img1 = arrOfLinks[0];
+                    sliderImages.img2 = arrOfLinks[1];
+                    sliderImages.img3 = arrOfLinks[2];
+                }
             }
 
             return (

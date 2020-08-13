@@ -244,7 +244,7 @@ function getValue(data: Composite) {
 //         .join(`",`)
 //         .substring(2)
 //         .replace('}', '');
-//     console.log(reactCSS);
+//     (reactCSS);
 //     return reactCSS;
 // }
 

@@ -99,7 +99,7 @@ function useDivDrop(backgroundColor: string, border: ReactText, elementId: strin
                 type: 'ADD_COMPONENT',
                 payload: {
                     parentId: elementId,
-                    component: new Composite(item.value.toLowerCase(), '', {}),
+                    component: new Composite(item.value.toLowerCase(), 'value', {}),
                 },
             });
         },

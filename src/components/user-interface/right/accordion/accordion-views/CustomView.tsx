@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { useEffect, useState } from 'react';
-import { parseCSS, parseStyleObject } from '../../../../../utils/cssparser';
+import React, { useState } from 'react';
+import { parseCSS } from '../../../../../utils/cssparser';
 import { useComponent } from '../../../../../redux';
 
 export function CustomView() {
-    const { selectedComponent, componentDispatch: dispatch } = useComponent();
+    const { componentDispatch: dispatch } = useComponent();
     const [customCss, setCustomCss] = useState('');
     const [customClasses, setCustomClasses] = useState('');
     // const styleString = parseStyleObject(selectedComponent!.css);
@@ -25,7 +25,6 @@ export function CustomView() {
     function onCustomClassChange(value: string) {
         if (value) {
             dispatch({ type: 'UPDATE_COMPONENT_CLASSES', payload: value });
-            console.log(value);
             setCustomClasses(value);
         }
     }

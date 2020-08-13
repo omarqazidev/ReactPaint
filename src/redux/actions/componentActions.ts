@@ -44,6 +44,11 @@ export interface INewProjectAction {
     readonly type: 'NEW_PROJECT';
 }
 
+export interface IUpdateValueAction {
+    readonly type: 'UPDATE_VALUE';
+    payload: { componentId: string; valueToUpdate: string };
+}
+
 export type ComponentActions =
     | IAddComponentAction
     | ISelectComponentAction
@@ -53,4 +58,5 @@ export type ComponentActions =
     | IDuplicateComponentAction
     | IUpdateComponentBackgroundColorAction
     | IImportJsonAsProjectAction
-    | INewProjectAction;
+    | INewProjectAction
+    | IUpdateValueAction;

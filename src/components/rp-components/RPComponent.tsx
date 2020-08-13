@@ -10,7 +10,7 @@ interface ComponentProps {
 export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
     const { componentDispatch, selectedComponent } = useComponent();
     const [element, setElement] = useState<ReactElement | null>(null);
-    const [value, setValue] = useState<string>('value');
+    const [value, setValue] = useState<string>(data.value);
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isSelected, setIsSelected] = useState<boolean>(false);
 
@@ -26,7 +26,15 @@ export const RPComponent: React.FC<ComponentProps> = ({ data }) => {
         }
     };
 
-    const jsx = getJsx(data, value, setValue, singleClick, doubleClick);
+    useEffect(() => {
+        componentDispatch({
+            type: 'UPDATE_VALUE',
+            payload: { componentId: data.id, valueToUpdate: value },
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value]);
+
+    const jsx = getJsx(data, value, setValue, singleClick, doubleClick, componentDispatch);
 
     let textfield = (
         <input

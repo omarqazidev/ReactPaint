@@ -6,7 +6,7 @@ import {
     IDeleteComponentAction,
     IDuplicateComponentAction,
     IUpdateComponentBackgroundColorAction,
-    IImportJsonAsProjectAction,
+    IUpdateValueAction,
 } from './../actions/componentActions';
 import { ComponentActions } from '../actions/componentActions';
 import Composite from '../../structures/Composite';
@@ -66,11 +66,22 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
             return { ...state };
 
         case 'IMPORT_JSON_AS_PROJECT':
-            importJsonAsProject(state, action);
+            const parsedJson: Composite = JSON.parse(action.payload);
+
+            const component = importJson(parsedJson);
+            state = {
+                ...state,
+                selectedComponent: new Composite('', '', {}),
+                mainComponent: component,
+            };
             return state;
 
         case 'NEW_PROJECT':
             newProject(state);
+            return state;
+
+        case 'UPDATE_VALUE':
+            updateValue(state.mainComponent, action);
             return state;
 
         default:
@@ -79,16 +90,6 @@ const componentReducer = (state: ComponentState = initialState, action: Componen
 };
 
 export const curriedComponentReducer = produce(componentReducer);
-
-function newProject(state: ComponentState) {
-    state.mainComponent = new Composite('container', '', {
-        backgroundColor: 'white',
-        height: '89vh',
-        width: '100%',
-        overflow: 'auto',
-    });
-    state.selectedComponent = new Composite('', '', {});
-}
 
 function addComponent(component: Composite, action: IAddComponentAction) {
     if (action.payload.parentId === '-1') {
@@ -211,24 +212,61 @@ function updateBackgroundColor(
     });
 }
 
-function importJsonAsProject(state: ComponentState, action: IImportJsonAsProjectAction) {
-    const parsedJson: Composite = JSON.parse(action.payload);
-    // state.mainComponent = { ...parsedJson };
-
-    let newObject: Composite = new Composite(parsedJson.type, parsedJson.value, {
-        ...parsedJson.css,
+function newProject(state: ComponentState) {
+    state.mainComponent = new Composite('container', '', {
+        backgroundColor: 'white',
+        height: '89vh',
+        width: '100%',
+        overflow: 'auto',
     });
-    newObject.classes = parsedJson.classes;
-    parsedJson.children.forEach((child) => {
-        newObject.addChild(child);
-    });
-
     state.selectedComponent = new Composite('', '', {});
-    // state.selectedComponent = new state.mainComponent() = new Composite('container', '', {
-    //     backgroundColor: 'white',
-    //     height: '89vh',
-    //     width: '100%',
-    //     overflow: 'auto',
-    // });
-    // state.selectedComponent = new Composite('', '', {});
 }
+
+function importJson(component: Composite) {
+    let newObject: Composite = new Composite(component.type, component.value, {
+        ...component.css,
+    });
+    newObject.classes = component.classes;
+    component.children.forEach((child) => {
+        newObject.addChild(importJson(child));
+    });
+    return newObject;
+}
+
+function updateValue(component: Composite, action: IUpdateValueAction) {
+    if (component.id === action.payload.componentId) {
+        component.value = action.payload.valueToUpdate;
+    }
+    component.children.forEach((childComponent) => {
+        updateValue(childComponent, action);
+    });
+}
+
+// function importJsonAsProject(
+//     mainComponent: Composite,
+//     selectedComponent: Composite,
+//     action: IImportJsonAsProjectAction
+// ) {
+//     const parsedJson: Composite = JSON.parse(action.payload);
+
+//     let newObject: Composite = new Composite(parsedJson.type, parsedJson.value, {
+//         ...parsedJson.css,
+//     });
+//     newObject.classes = parsedJson.classes;
+//     parsedJson.children.forEach((child) => {
+//         newObject.addChild(child);
+//     });
+//     return newObject;
+// }
+
+// function getEntireProjectObject(parentObject: Composite) {
+//     let newObject: Composite = new Composite(parentObject.type, parentObject.value, {
+//         ...parentObject.css,
+//     });
+//     newObject.classes = parentObject.classes;
+//     newObject.id = parentObject.id;
+//     parentObject.children.forEach((child) => {
+//         newObject.addChild(getEntireProjectObject(child));
+//     });
+//     return newObject;
+// }

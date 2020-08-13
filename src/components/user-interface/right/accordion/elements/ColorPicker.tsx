@@ -46,7 +46,6 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({ text }) => {
                 colorPickerRef.current.style.display = 'block';
                 setIsOpen(true);
             } else {
-                console.log('hey');
                 colorPickerRef.current.style.display = 'none';
                 setIsOpen(false);
             }

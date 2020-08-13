@@ -55,7 +55,6 @@ function renderNavBar(mainComponent: Composite, UIDispatch: Function, componentD
                                 className="dropdown-item"
                                 href="#"
                                 onClick={() => {
-                                    console.log(JSON.stringify(mainComponent));
                                     savefile(
                                         JSON.stringify(mainComponent),
                                         'ReactPaintProject.json'
@@ -109,7 +108,6 @@ function renderNavBar(mainComponent: Composite, UIDispatch: Function, componentD
                                 className="dropdown-item"
                                 href="#"
                                 onClick={() => {
-                                    console.log(JSON.stringify(mainComponent));
                                     savefile(JSON.stringify(mainComponent), 'ReactPaintJSON.json');
                                 }}
                             >
