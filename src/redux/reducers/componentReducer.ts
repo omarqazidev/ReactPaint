@@ -19,7 +19,7 @@ type ComponentState = {
 
 const baseContainer = new Composite('container', '', {
     backgroundColor: 'white',
-    height: '89vh',
+    height: '100vh',
     width: '100%',
     overflow: 'auto',
 });

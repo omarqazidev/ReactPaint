@@ -10,7 +10,7 @@ function RightSidebar() {
 
     return (
         <div className="right_sidebar">
-            <SimpleBar style={{ maxHeight: 850 }} className="simplebar">
+            <SimpleBar style={{ maxHeight: '100vh' }} className="simplebar">
                 <div className="right_title">Component Properties</div>
                 <div className="right_divider" />
                 <div className="right_divider" />
