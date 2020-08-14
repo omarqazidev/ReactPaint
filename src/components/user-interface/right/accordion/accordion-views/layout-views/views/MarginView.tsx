@@ -9,39 +9,39 @@ export function MarginView() {
 
     function onValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginTop: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginRight: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginBottom: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginLeft: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: `${value}%` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginTop: undefined } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginRight: undefined } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginBottom: undefined } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginLeft: undefined } });
         }
     }
 
     function onTopValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginTop: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginTop: `${value}%` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
         }
     }
 
     function onRightValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginRight: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginRight: `${value}%` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
         }
     }
 
     function onBottomValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginBottom: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginBottom: `${value}%` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
         }
     }
 
     function onLeftValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginLeft: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { marginLeft: `${value}%` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { margin: undefined } });
         }
     }
 

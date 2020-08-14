@@ -5,7 +5,7 @@ import ComponentButton from './ComponentButton';
 function LeftSidebar() {
     return (
         <div className="left_sidebar">
-            <div className="left_title">React Elements</div>
+            <div className="left_title">RP Components</div>
             <div className="left_divider"></div>
             {components.map((component) => (
                 <ComponentButton componentData={component} key={component.id} />

@@ -9,20 +9,20 @@ export function HeightView() {
 
     function onValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: `${value}%` } });
         }
     }
 
     function onMinValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minHeight: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minHeight: `${value}%` } });
         }
     }
 
     function onMaxValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxHeight: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxHeight: `${value}%` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { height: `${value}%` } });
         }
     }
 

@@ -9,39 +9,39 @@ export function PaddingView() {
 
     function onValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingTop: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: `${value}px` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingTop: undefined } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: undefined } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: undefined } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: `${value}%` } });
         }
     }
 
     function onTopValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingTop: `${value}px` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingTop: `${value}%` } });
         }
     }
 
     function onRightValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: `${value}px` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingRight: `${value}%` } });
         }
     }
 
     function onBottomValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: `${value}px` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingBottom: `${value}%` } });
         }
     }
 
     function onLeftValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: `${value}px` } });
+            // dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { padding: undefined } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { paddingLeft: `${value}%` } });
         }
     }
 

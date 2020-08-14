@@ -9,27 +9,27 @@ export function WidthView() {
 
     function onValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: `${value}%` } });
         }
     }
 
     function onMinValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minWidth: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { minWidth: `${value}%` } });
         }
     }
 
     function onMaxValueChange(value: number | null) {
         if (value) {
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxWidth: `${value}px` } });
-            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: `${value}px` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { maxWidth: `${value}%` } });
+            dispatch({ type: 'UPDATE_COMPONENT_CSS', payload: { width: `${value}%` } });
         }
     }
 
     return (
         <li className="single-property">
             <a className="uk-accordion-title">
-                <div>Weight</div>
+                <div>Width</div>
             </a>
             <div className="uk-accordion-content">
                 <div className="flex-space-between height-med">

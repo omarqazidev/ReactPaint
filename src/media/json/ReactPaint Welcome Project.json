@@ -1,0 +1,217 @@
+{
+    "id": "3d58a170-6e67-47df-889b-89809b88d5b3",
+    "type": "container",
+    "name": "container3d58a170-6e67-47df-889b-89809b88d5b3",
+    "value": "",
+    "css": {
+        "backgroundColor": "white",
+        "height": "89vh",
+        "width": "100%",
+        "overflow": "auto",
+        "border": "none"
+    },
+    "classes": "",
+    "children": [
+        {
+            "id": "f2a92b04-fd56-4f7a-9e6b-0df55e4272d3",
+            "type": "container",
+            "name": "containerf2a92b04-fd56-4f7a-9e6b-0df55e4272d3",
+            "value": "value",
+            "css": {
+                "backgroundColor": "rgba(113, 101, 170, 1)",
+                "border": "none",
+                "height": "30px",
+                "width": "1339px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "1a38b6ad-efb9-457f-a005-5a08b8a9bbd3",
+            "type": "image",
+            "name": "image1a38b6ad-efb9-457f-a005-5a08b8a9bbd3",
+            "value": "https://reactpaint.netlify.app/reactpaint_logo.png",
+            "css": {
+                "height": "300px",
+                "minHeight": "300px",
+                "width": "300px",
+                "marginLeft": "500px",
+                "marginTop": "11px",
+                "marginBottom": "12px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "d7049a44-c8e3-4e6a-9b7b-8a5938349757",
+            "type": "container",
+            "name": "containerd7049a44-c8e3-4e6a-9b7b-8a5938349757",
+            "value": "value",
+            "css": {
+                "backgroundColor": "rgba(113, 101, 170, 1)",
+                "border": "none",
+                "height": "47px",
+                "width": "1339px"
+            },
+            "classes": "",
+            "children": [
+                {
+                    "id": "2aa3aa52-4259-4d85-91ed-80adcd604446",
+                    "type": "text",
+                    "name": "text2aa3aa52-4259-4d85-91ed-80adcd604446",
+                    "value": "ReactPaint - A React Page Builder",
+                    "css": {
+                        "color": "rgba(255, 255, 255, 1)",
+                        "fontSize": 20,
+                        "marginLeft": "460px",
+                        "marginTop": "-1px",
+                        "paddingTop": "7px"
+                    },
+                    "classes": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "e53e8d2b-6587-44a9-a54c-d4e978024070",
+            "type": "text",
+            "name": "texte53e8d2b-6587-44a9-a54c-d4e978024070",
+            "value": "Welcome to ReactPaint!",
+            "css": {
+                "color": "rgba(67, 50, 154, 1)",
+                "marginLeft": "434px",
+                "fontSize": 40,
+                "marginBottom": "20px",
+                "marginTop": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "36665238-78d5-46d2-996d-fb578dbd00fa",
+            "type": "text",
+            "name": "text36665238-78d5-46d2-996d-fb578dbd00fa",
+            "value": "ReactPaint is quite an easy tool to use.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 20
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "584dc560-73fc-4b25-afb1-5d1cb3edc8f0",
+            "type": "text",
+            "name": "text584dc560-73fc-4b25-afb1-5d1cb3edc8f0",
+            "value": "1. Drag-and-Drop the RP Components you want to use onto the Design Area.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "85d2bdc4-afea-4296-a31b-363b2b9a5a09",
+            "type": "text",
+            "name": "text85d2bdc4-afea-4296-a31b-363b2b9a5a09",
+            "value": "2. Double Click on RP Component to change their values.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "abd51db2-68df-481e-90db-91ce98f54f50",
+            "type": "text",
+            "name": "textabd51db2-68df-481e-90db-91ce98f54f50",
+            "value": "3. Change RP Component properties from the Properties Menu.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "c035ac7f-5289-4453-920d-416f013d042e",
+            "type": "text",
+            "name": "textc035ac7f-5289-4453-920d-416f013d042e",
+            "value": "4. Save your project so that you can Load it later.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "30e6bb3e-ee78-447f-96a4-b341d01cbd8b",
+            "type": "text",
+            "name": "text30e6bb3e-ee78-447f-96a4-b341d01cbd8b",
+            "value": "5. Export your project as a webpage, a json file, or an image.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "8cfc138c-8832-4b4b-a9e1-2b313dd80ec5",
+            "type": "text",
+            "name": "text8cfc138c-8832-4b4b-a9e1-2b313dd80ec5",
+            "value": "6. When you are finished with your design project. Generate and Export the project as a ReactJS Component.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "a430adb0-6da3-423e-8aa7-9168f9856042",
+            "type": "text",
+            "name": "texta430adb0-6da3-423e-8aa7-9168f9856042",
+            "value": "7. Start a new project and try it out.",
+            "css": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 1)",
+                "fontSize": 14,
+                "marginLeft": "20px"
+            },
+            "classes": "",
+            "children": []
+        },
+        {
+            "id": "f9321e94-7612-444b-b989-b40ec85d66db",
+            "type": "text",
+            "name": "textf9321e94-7612-444b-b989-b40ec85d66db",
+            "value": "Happy Designing :)",
+            "css": {
+                "color": "rgba(67, 50, 154, 1)",
+                "marginLeft": "565px",
+                "fontSize": 20,
+                "marginBottom": "1px",
+                "marginTop": "1px"
+            },
+            "classes": "",
+            "children": []
+        }
+    ]
+}
