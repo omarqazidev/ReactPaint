@@ -1,4 +1,5 @@
 # ReactPaint - A React Page Builder.
+![image](https://user-images.githubusercontent.com/28197002/169084990-a9b42baf-060d-407c-910b-1968d485d1cf.png)
 
 ## Objective:
 The primary objective of ReactPaint is to provide developers with a user-interface-based tool that will allow them to easily design webpages, and generate ReactJS and relating code (HTML, CSS).
