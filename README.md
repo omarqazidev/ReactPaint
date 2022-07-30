@@ -1,19 +1,53 @@
-# ReactPaint - A React Page Builder.
+# ReactPaint - A Page Builder that generates React code.
 ![image](https://user-images.githubusercontent.com/28197002/169084990-a9b42baf-060d-407c-910b-1968d485d1cf.png)
 
 ## Demo:
-[Try ReactPaint out now!](https://reactpaint.netlify.app/)
+<img align="center" src="https://user-images.githubusercontent.com/28197002/181934825-31b4a219-c6c4-47f0-85ac-e65d3d864787.png" alt="reactpaint-logo" height="20" width="20" /> [Try ReactPaint out now!](https://reactpaint.netlify.app/)
 
-## Objective:
-The primary objective of ReactPaint is to provide developers with a user-interface-based tool that will allow them to easily design webpages, and generate ReactJS and relating code (HTML, CSS).
 
-## Goals:
-**Reduce Workload:** Developers can focus on their product’s design rather than on writing redundant code.<br>
-**Clean Code:** The goal is not only to generate working code, but also to generate code that is easily readable and understandable.<br>
-**Integrate-able:** I was working towards providing a tool that generates code which is easily integrable with other codebases.<br>
+## What is ReactPaint?
+ReactPaint is a page builder, where the user can design a web page by using the app's user interface, and then generate htm/css and react.js code for it.
 
-## Stakeholders:
-I wanted to develop a tool that will assist technical users in designing web applications. Time is of paramount importance. Each hour spent in coding and debugging could be more profitable, if spent on designing and problem solving.
+## How it works: 
+- Drag-n-drop different components onto the workspace.
+- Edit component contents by double clicking it to enter inserting mode, then double clicking to exit out of it.
+- Customize the component properties by either selecting the component or by double clicking it to edit its contents.
+- Generate React.js code.
+
+## Features:
+- ReactPaint Components
+  - Container (works similar to \<div\>. Capable of infinite nesting)
+  - Text
+  - Heading
+  - Button
+  - TextField
+  - Image
+  - Video
+  - Audio
+  - iFrame
+  - Carousel
+- ReactPaint Component Customization
+  - Layout
+    - Layout Display (shows margin and padding similar of selected component)
+    - Height
+      - value
+      - top
+      - right
+      - bottem
+      - left
+    - Width
+    - Margin
+    - Padding
+
+## Parts of ReactPaint
+- **File Menu** for project management and code generation
+- **Left Sidebar** for RP components 
+- **Right Sidebar** for RP component properties
+- **Workspace Area**
+
+### File Menu
+
+
 
 ## Technologies:
 - It is written primarily in React with TypeScript.
