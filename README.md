@@ -11,8 +11,10 @@ ReactPaint is a page builder, where the user can design a web page by using the 
 ## How it works: 
 - Drag-n-drop different components onto the workspace.
 - Edit component contents by double clicking it to enter inserting mode, then double clicking to exit out of it.
-- Customize the component properties by either selecting the component or by double clicking it to edit its contents.
-- Generate React.js code.
+- Customize the component properties by selecting the component and then using the properties sidebar.
+- Generate React.js code
+- Save your project to load later.
+- Export HTML/CSS, JSON, or PNG of your project.
 
 ## Features:
 - ReactPaint Components
