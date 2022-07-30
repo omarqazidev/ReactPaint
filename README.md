@@ -1,4 +1,4 @@
-# ReactPaint - A Page Builder that generates React code.
+# ReactPaint - a page builder that generates react code.
 ![image](https://user-images.githubusercontent.com/28197002/169084990-a9b42baf-060d-407c-910b-1968d485d1cf.png)
 
 ## Demo:
@@ -38,6 +38,25 @@ ReactPaint is a page builder, where the user can design a web page by using the 
     - Width
     - Margin
     - Padding
+  - Background
+    - Background Color
+    - Background Image
+  - Font
+    - Text Color
+    - Font Size
+    - Font Family
+  - Display
+    - inline
+    - block
+    - inline-block
+    - contents
+    - flex
+    - grid
+  - Custom
+    - Custom CSS
+    - Custom Classes
+  - Delete
+  - Duplicate
 
 ## Parts of ReactPaint
 - **File Menu** for project management and code generation
@@ -45,16 +64,14 @@ ReactPaint is a page builder, where the user can design a web page by using the 
 - **Right Sidebar** for RP component properties
 - **Workspace Area**
 
-### File Menu
-
-
-
 ## Technologies:
-- It is written primarily in React with TypeScript.
-- Redux with Immer is used for state management.
-- ReactDnD is used to handle drag-and-drop features.
-- Semantic UI, BootStrap and custom CSS components are used for styling.
-
+- React
+- Redux
+- TypeScript
+- Immer (for redux)
+- ReactDnD (for handing drag-n-drop events)
+- Bootstrap, UIKit, custom css (for styling)
+- .. and a bunch of other stuff.
 
 ## Video
 https://user-images.githubusercontent.com/28197002/168484066-a9daebea-f1d2-4bed-bec5-0fd5b7c361d3.mp4
