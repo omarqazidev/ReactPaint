@@ -1,5 +1,6 @@
 # ReactPaint - a page builder that generates react code.
-https://user-images.githubusercontent.com/28197002/183523412-03b3c3c6-db2e-46ef-b735-15350de228ab.mp4
+![ReactPaintImage](https://github.com/user-attachments/assets/e30aaef4-0a14-436f-84a5-7ad0647e8905)
+![image](https://user-images.githubusercontent.com/28197002/169084990-a9b42baf-060d-407c-910b-1968d485d1cf.png)
 
 <!---
 ![image](https://user-images.githubusercontent.com/28197002/169084990-a9b42baf-060d-407c-910b-1968d485d1cf.png)
@@ -9,6 +10,8 @@ https://user-images.githubusercontent.com/28197002/183523412-03b3c3c6-db2e-46ef-
 
 ## What is ReactPaint?
 ReactPaint is a page builder, where the user can design a web page by using the app's user interface, and then generate htm/css and react.js code for it.
+
+<img align="center" src="https://user-images.githubusercontent.com/28197002/181934825-31b4a219-c6c4-47f0-85ac-e65d3d864787.png" alt="reactpaint-logo" height="20" width="20" /> [Try ReactPaint out now!](https://reactpaint.netlify.app/)
 
 ## How it works: 
 - Drag-n-drop different components onto the workspace.
@@ -77,6 +80,9 @@ ReactPaint is a page builder, where the user can design a web page by using the 
 - Bootstrap, UIKit, custom css (for styling)
 - .. and a bunch of other stuff.
 
+
+## Demo Video
+https://user-images.githubusercontent.com/28197002/183523412-03b3c3c6-db2e-46ef-b735-15350de228ab.mp4
 
 ---
 <h3 align="left">Connect with me:</h3>
